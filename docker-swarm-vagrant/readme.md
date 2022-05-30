@@ -11,8 +11,8 @@ cd docker-swarm-vagrant
 ## Inicializar VMs  
 Ejecutar `vagrant up`  
   - Esto configurara 3 maquinas virtuales **manager**,**worker-1**&**worker-2** todas provisionadas con docker. 
-  desde la maquina manager ejecutar el comando docker service update --replicas 7 sweb
-  #aqui le estaremos indicando que replica 7 veces el servicio que creamos y los reparta en el nodo
+  desde la maquina manager ejecutar el comando 'docker service update --replicas 7 sweb'
+  #aqui le estaremos indicando que replica 7 veces el servicio que creamos y los distribuya sobre el nodo creado. 
 
 
 Para ssh en el nodo manager ejecuta el comando `vagrant ssh manager`  
@@ -24,7 +24,7 @@ El nodo manager iniciara el docker swarm mientras que los workers se uniran por 
 
 
 -Con el comando docker node ls podemos ver la lista de nodos y roles de (worker/manager)  
--Se creo una red con el nombre dvs para que cada contenedor pueda unirse.    
+-Se creo una red con el nombre locate para que cada contenedor pueda unirse.    
 - Se creo un servicio para ejecutar contenedores desde la imagen especificada con los nodos conectados
 
  
