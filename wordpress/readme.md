@@ -4,7 +4,7 @@ Creando un sitio con Wordpress a través de la nube de DigitalOcean. Se provisio
 Requisitos para replicar este proyecto:
 	Instalar Terraform v1.2.1
 	Tener una cuenta creada con Digital Ocean, para instalar dicha infraestructura
-	Doctl DigitalOcean
+	Instalar y configurar doctl
 	Code Visual
 
 Pasos para replicar este código:
