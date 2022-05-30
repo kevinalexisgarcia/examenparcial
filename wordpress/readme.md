@@ -2,10 +2,10 @@ Despliegue de una aplicación real utilizando Terraform
 Creando un sitio con Wordpress a través de la nube de DigitalOcean. Se provisionará dos droplets, una VPC para comunicación interna y un balanceador de carga. El repositorio que se utilizo para este proyecto fue GitHub - galvarado/terraform-ansible-DO-deploy-wordpress: Deploy Wordpress to Digital Ocean using terraform and ansible
 
 Requisitos para replicar este proyecto:
-	Instalar Terraform v1.2.1
-	Tener una cuenta creada con Digital Ocean, para instalar dicha infraestructura
-	Instalar y configurar doctl
-	Code Visual
+Instalar Terraform v1.2.1
+Tener una cuenta creada con Digital Ocean, para instalar dicha infraestructura
+Create an API token en DigitalOcean
+Instalar y configurar doctl
 
 Pasos para replicar este código:
 1.	Clonar este repositorio
