@@ -1,0 +1,57 @@
+$manager_script = <<SCRIPT
+echo Swarm Init...
+sudo docker swarm init --listen-addr 192.168.10.100:2377 --advertise-addr 192.168.10.10:2377
+sudo docker swarm join-token --quiet worker > /vagrant/worker_token
+sudo docker network create -d overlay locate
+sudo docker service create --name sweb --network locate monicagangwar/docker-swarm-vagrant
+SCRIPT
+
+$worker_script = <<SCRIPT
+echo Swarm Join...
+sudo docker swarm join --token $(cat /vagrant/worker_token) 192.168.10.100:2377
+SCRIPT
+
+servers=[
+  {
+    :hostname => "manager",
+    :ip => "192.168.10.100",
+    :box => "hashicorp/bionic64",
+    :ram => 1024,
+    :cpu => 2
+  },
+  {
+    :hostname => "worker-1",
+    :ip => "192.168.10.101",
+    :box => "hashicorp/bionic64",
+    :ram => 1024,
+    :cpu => 2
+  },
+  {
+    :hostname => "worker-2",
+    :ip => "192.168.10.102",
+    :box => "hashicorp/bionic64",
+    :ram => 1024,
+    :cpu => 2
+  }
+]
+Vagrant.configure(2) do |config|
+  servers.each do |machine|
+    config.vm.define machine[:hostname] do |node|
+      node.vm.box = machine[:box]
+      node.vm.hostname = machine[:hostname]
+      node.vm.network "private_network", ip: machine[:ip]
+      if machine[:hostname] == "manager"
+        node.vm.provision "docker",
+          images: ["monicagangwar/docker-swarm-vagrant"]
+          node.vm.provision "shell", inline: $manager_script, privileged: true
+      else
+        node.vm.provision "docker"
+        node.vm.provision "shell", inline: $worker_script, privileged: true
+      end
+      node.vm.provider "virtualbox" do |vb|
+        vb.customize ["modifyvm", :id, "--memory", machine[:ram]]
+      end
+    end
+  end
+
+end
