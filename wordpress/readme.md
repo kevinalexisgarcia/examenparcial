@@ -17,7 +17,7 @@ do_token = "" Ingresar el token generado”
 3.	Modificar el archivo de variables terraform.tfvars. Cambiando las siguientes variables
 3.1 do_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 3.2 ssh_key_private1 = "Este key se genera desde la computadora host si es con Windows a través de Putty y con Linux con el comando “ssh-keygen” https://docs.digitalocean.com/products/droplets/how-to/add-ssh-keys/create-with-openssh/	 y se debe de colocar la ruta donde esta almacenada. En mi caso fue “~/.ssh/id_rsa” que es la ruta por default donde se almacenan las llaves en Linux. 
-3.3 droplet_ssh_key_id1 = "Este id se genera a través del comando "doctl compute ssh-key list" https://docs.digitalocean.com/reference/doctl/how-to/install/
+3.3 droplet_ssh_key_id1 = "Este id se genera a través del comando "doctl compute ssh-key list" Seguir la siguiente guia, donde solicitara ingresar el token de Digital que se genero anteriormente para luego ejecutar el codigo indicado. https://docs.digitalocean.com/reference/doctl/how-to/install/
 
 Las demás variables no son necesarias cambiarlas para realizar el deployment, ya que si se cambia se debe de cambiar en el otro archivo examen-terraform.tf, por esa razón solo se recomienda cambiar las variables mencionadas anteriormente para ejecutar el deployment, estas son necesarias para realizar la conexión de nuestra computadora a DigitalOcean
 
