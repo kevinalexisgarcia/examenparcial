@@ -20,6 +20,7 @@ do_token = "" Ingresar el token generado”
 3.3 droplet_ssh_key_id1 = "Este id se genera a través del comando "doctl compute ssh-key list" 
 
 Las demás variables no son necesarias cambiarlas para realizar el deployment, ya que si se cambia se debe de cambiar en el otro archivo examen-terraform.tf, por esa razón solo se recomienda cambiar las variables mencionadas anteriormente para ejecutar el deployment, estas son necesarias para realizar la conexión de nuestra computadora a DigitalOcean
+
 4.	Cargar el key public ssh a la cuenta de DigitalOcean, esta llave ya se genero anteriormente en los pasos anteriores, solo debemos de copiar la llave publica a nuestra cuenta de Digital Ocean. How to Upload SSH Public Keys to a DigitalOcean Account :: DigitalOcean Documentation
 
 
