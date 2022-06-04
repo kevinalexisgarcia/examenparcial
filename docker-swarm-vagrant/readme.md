@@ -23,11 +23,10 @@ El archivo vagranfile ya contiene los scripts que provisionara automaticamente e
 El nodo manager iniciara el docker swarm mientras que los workers se uniran por medio de un token que se genero anteriormente.
 
 
--Con el comando docker node ls podemos ver la lista de nodos y roles de (worker/manager)  
--Se creo una red con el nombre locate para que cada contenedor pueda unirse.    
-- Se creo un servicio para ejecutar contenedores desde la imagen especificada con los nodos conectados
+-Con el comando docker node ls podemos ver la lista de nodos y roles de (worker/manager)    
+- Deployment NGINX
+Para visualizar mejor cómo funciona Docker Swarm, implemente NGINX distribuido en todos los nodos, incluido el nodo administrador 
 
- 
 ##commands  
 - `docker service ls`  
    Lists the services created
