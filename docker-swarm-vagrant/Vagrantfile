@@ -2,8 +2,7 @@ $manager_script = <<SCRIPT
 echo Swarm Init...
 sudo docker swarm init --listen-addr 192.168.10.100:2377 --advertise-addr 192.168.10.10:2377
 sudo docker swarm join-token --quiet worker > /vagrant/worker_token
-sudo docker network create -d overlay locate
-sudo docker service create --name sweb --network locate monicagangwar/docker-swarm-vagrant
+sudo docker service create --name my_nginx --replicas 8 --publish published=8080,target=80 nginx
 SCRIPT
 
 $worker_script = <<SCRIPT
