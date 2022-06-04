@@ -12,7 +12,7 @@ cd docker-swarm-vagrant
 Ejecutar `vagrant up`  
   - Esto configurara 3 maquinas virtuales **manager**,**worker-1**&**worker-2** todas provisionadas con docker. 
   desde la maquina manager ejecutar el comando 'docker service update --replicas 7 sweb'
-  #aqui le estaremos indicando que replica 7 veces el servicio que creamos y los distribuya sobre el nodo creado. 
+  #aqui le estaremos indicando que replica 8 veces el servicio que creamos y los distribuya sobre el nodo creado. 
 
 
 Para ssh en el nodo manager ejecuta el comando `vagrant ssh manager`  
